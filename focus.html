@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Focus Desk</title>
+  <link rel="stylesheet" href="focus.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Focus Desk</h1>
+    <div class="top-right">
+      <span id="greeting"></span>
+      <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <!-- TIMER -->
+    <section class="card timer-card">
+      <h2>Focus Timer</h2>
+      <div class="modes">
+        <button class="mode active" data-min="25">Focus 25</button>
+        <button class="mode" data-min="5">Short 5</button>
+        <button class="mode" data-min="15">Long 15</button>
+      </div>
+      <div class="ring-wrap">
+        <svg viewBox="0 0 120 120" class="ring">
+          <circle class="track" cx="60" cy="60" r="54"/>
+          <circle class="progress" id="progress" cx="60" cy="60" r="54"/>
+        </svg>
+        <div class="time" id="time">25:00</div>
+      </div>
+      <div class="row">
+        <button class="btn" id="startBtn">Start</button>
+        <button class="btn ghost" id="resetBtn">Reset</button>
+      </div>
+      <p class="muted">Sessions completed today: <strong id="sessions">0</strong></p>
+    </section>
+
+    <!-- TASKS -->
+    <section class="card tasks-card">
+      <h2>Tasks</h2>
+      <form id="taskForm" class="row">
+        <input id="taskInput" type="text" placeholder="Add a task and press Enter" autocomplete="off" required>
+        <button class="btn" type="submit">Add</button>
+      </form>
+      <div class="filters">
+        <button class="filter active" data-f="all">All</button>
+        <button class="filter" data-f="active">Active</button>
+        <button class="filter" data-f="done">Done</button>
+      </div>
+      <ul id="taskList"></ul>
+      <div class="foot">
+        <span id="count" class="muted"></span>
+        <button class="link" id="clearDone">Clear completed</button>
+      </div>
+      <div class="bar"><div id="bar"></div></div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="card quote-card">
+      <h2>Need a nudge?</h2>
+      <p id="quote" class="quote">Click the button for a bit of motivation.</p>
+      <button class="btn" id="quoteBtn">New quote</button>
+    </section>
+
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <script src="focus.js"></script>
+</body>
+</html>
